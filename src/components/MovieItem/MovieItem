@@ -1,0 +1,13 @@
+function MovieItem({
+    setSelectedMovie
+}) {
+    const handleMovieClick = () => {
+        setSelectedMovie(movies.description);
+        alert(`You selected ${movies.title}`);
+    }
+    return(
+        <div onClick={handleMovieClick}>{movies.id}</div>
+    )
+}
+
+export default MovieItem;

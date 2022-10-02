@@ -16,6 +16,14 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
 }
 
+function* selectMovie() {
+    try {
+        const selectedMovie = yield axios.get
+    } catch {
+        console.log('selectMovie error');
+    }
+}
+
 function* fetchAllMovies() {
     // get all movies from the DB
     try {
@@ -28,6 +36,8 @@ function* fetchAllMovies() {
     }
         
 }
+
+
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
