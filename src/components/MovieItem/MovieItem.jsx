@@ -3,6 +3,7 @@ function MovieItem({
 }) {
     const handleMovieClick = () => {
         setSelectedMovie(movies.description);
+        console.log(`{movies.id}`)
         alert(`You selected ${movies.title}`);
     }
     return(
