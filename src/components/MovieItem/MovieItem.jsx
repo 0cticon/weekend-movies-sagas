@@ -1,13 +1,20 @@
 function MovieItem({
-    setSelectedMovie
+    movie
 }) {
     const handleMovieClick = () => {
-        setSelectedMovie(movies.description);
-        console.log(`{movies.id}`)
-        alert(`You selected ${movies.title}`);
+        console.log(`{movies.title}`)
+        // dispatch movie to reducer
+        // history.push to detail page
+
+        alert(`You selected ${movie.title}`);
     }
-    return(
-        <div onClick={handleMovieClick}>{movies.id}</div>
+    return (
+        <div onClick={handleMovieClick}>
+            <div>
+                <h3>{movie.title}</h3>
+                <img src={movie.poster} alt={movie.title} />
+            </div>
+        </div>
     )
 }
 

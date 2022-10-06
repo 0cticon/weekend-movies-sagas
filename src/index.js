@@ -16,13 +16,13 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
 }
 
-function* selectMovie() {
-    try {
-        const selectedMovie = yield axios.get
-    } catch {
-        console.log('selectMovie error');
-    }
-}
+// function* selectedMovie() {
+//     try {
+//         const selectedMovie = yield axios.get
+//     } catch {
+//         console.log('selectMovie error');
+//     }
+// }
 
 function* fetchAllMovies() {
     // get all movies from the DB
@@ -62,7 +62,7 @@ const genres = (state = [], action) => {
     }
 }
 
-const selectedMovie = (state = [], action) => {
+const selectedMovie = (state = {}, action) => {
     switch (action.type) {
         case 'SELECTED_MOVIE':
             return action.payload;
