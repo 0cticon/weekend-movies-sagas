@@ -42,7 +42,7 @@ function* fetchAllMovies() {
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-// Used to store movies returned from the server
+// Used to store array of movies returned from the server
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
@@ -62,6 +62,7 @@ const genres = (state = [], action) => {
     }
 }
 
+// the individual movie to display details for from the array movies
 const selectedMovie = (state = {}, action) => {
     switch (action.type) {
         case 'SELECTED_MOVIE':

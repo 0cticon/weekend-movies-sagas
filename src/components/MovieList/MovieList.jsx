@@ -6,7 +6,7 @@ import MovieItem from '../MovieItem/MovieItem';
 function MovieList() {
 
     const dispatch = useDispatch();
-    const movies = useSelector(store => store.movies);
+    const movieList = useSelector(store => store.movies);
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
@@ -16,7 +16,8 @@ function MovieList() {
         <main>
             <h1>MovieList</h1>
             <section className="movies">
-                {movies.map(movie => {
+                {movieList.map(movie => {
+                    // movie is an item in the array of movieList
                     return (
                         <MovieItem key={movie.id} movie={movie} />
 
