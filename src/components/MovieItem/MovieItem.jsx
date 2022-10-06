@@ -13,7 +13,7 @@ function MovieItem({
 
         // history.push to detail page
 
-        alert(`You selected ${movie.title}`);
+        // alert(`You selected ${movie.title}`);
     }
     return (
         <div onClick={handleMovieClick}>
