@@ -16,6 +16,20 @@ router.get('/', (req, res) => {
 
 });
 
+router.get('/', (req, res) => {
+
+  const query = `SELECT * FROM movies WHERE "id"=$1`;
+  pool.query(query, [req.params.id])
+    .then( result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get all movies', err);
+      res.sendStatus(500)
+    })
+
+});
+
 router.get('/details/:id'), (req, res) => {
   console.log('req.params.id');
   pool.query( query )
