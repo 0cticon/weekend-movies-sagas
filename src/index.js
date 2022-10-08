@@ -42,6 +42,7 @@ function* fetchAllMovies() {
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
+// REDUCERS 
 // Used to store array of movies returned from the server
 const movies = (state = [], action) => {
     switch (action.type) {

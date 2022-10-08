@@ -10,6 +10,7 @@ function MovieItem({
         console.log(`{movies.title}`)
         // dispatch movie to reducer
         dispatch({ type: 'SELECTED_MOVIE', payload: movie });
+        history.push('/detail');
 
         // history.push to detail page
 
