@@ -4,12 +4,13 @@ import { useEffect } from 'react';
 
 function Details() {
     const movie = useSelector(store => store.selectedMovie);
+    const genres = useSelector(store => store.genres)
     const { movieId } = useParams();
     const dispatch = useDispatch();
 
     // useEffect to load details/:id on refresh
     useEffect(() => {
-        dispatchEvent({ type: 'SELECTED_MOVIE', payload: movieId })
+        dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: movieId })
     }, [movieId])
 
     return (
@@ -18,6 +19,11 @@ function Details() {
             <h3>{movie.title}</h3>
             <img src={movie.poster} alt={movie.title} />
             <p>{movie.description}</p>
+            <ul>
+                {
+                    genres.map(genreToDisplay => <li>{genreToDisplay.name}</li>)
+                }
+            </ul>
         </div>
     )
 }

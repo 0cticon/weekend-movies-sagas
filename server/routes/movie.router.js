@@ -16,12 +16,13 @@ router.get('/', (req, res) => {
 
 });
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
 
   const query = `SELECT * FROM movies WHERE "id"=$1`;
   pool.query(query, [req.params.id])
     .then( result => {
-      res.send(result.rows);
+      // returns the first item in the array (which is an Object)
+      res.send(result.rows[0]);
     })
     .catch(err => {
       console.log('ERROR: Get all movies', err);
@@ -30,17 +31,6 @@ router.get('/', (req, res) => {
 
 });
 
-router.get('/details/:id'), (req, res) => {
-  console.log('req.params.id');
-  pool.query( query )
-    .then( result => { res.send(result.rows);
-
-    })  
-    .catch((error) => {
-      console.log(error);
-      res.sendStatus(500);
-    });
-}
 
 
 

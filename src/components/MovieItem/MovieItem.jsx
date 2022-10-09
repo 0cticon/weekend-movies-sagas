@@ -6,18 +6,19 @@ function MovieItem({
 }) {
     const history = useHistory();
     const dispatch = useDispatch();
-    const handleMovieClick = () => {
-        console.log(`{movies.title}`)
+
+    const displayMovie = (movieToDisplay) => {
+        console.log(movieToDisplay);
         // dispatch movie to reducer
-        dispatch({ type: 'SELECTED_MOVIE', payload: movie });
-        history.push(`/detail/${movie.id}`);
+        // dispatch({ type: 'SET_MOVIE_DETAILS', payload: movieToDisplay });
+        history.push(`/detail/${movieToDisplay.id}`);
 
         // history.push to detail page
 
         // alert(`You selected ${movie.title}`);
     }
     return (
-        <div onClick={handleMovieClick}>
+        <div onClick={(event) => displayMovie(movie)}>
             <div>
                 <h3>{movie.title}</h3>
                 <img src={movie.poster} alt={movie.title} />
